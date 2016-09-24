@@ -1,7 +1,9 @@
 import java.util.*;
 
-class B03 {
-	int days;
+class B04 {
+	int korScore;
+	int engScore;
+	int mathScore;
 
 	public void init() {
 		input();
@@ -11,20 +13,31 @@ class B03 {
 	public void input() {
 		Scanner s = new Scanner(System.in);
 
-		System.out.println("날수를 입력하세요: ");
-		this.days = s.nextInt();
+		System.out.println("국어점수를 입력하세요: ");
+		this.korScore = s.nextInt();
+		
+                System.out.println("국어점수를 입력하세요: ");
+                this.engScore = s.nextInt();
+		
+                System.out.println("국어점수를 입력하세요: ");
+                this.mathScore = s.nextInt();
 	}
 
 	public void print() {
-		int seconds = days * 24* 60 * 60;
-		int m_count = seconds / 1000000;
+		int sum = this.korScore + this.engScore + this.mathScore;
+		double avg = sum/3.0;
 
-		System.out.println("날수에 해당되는 기간은 모두 " + seconds + " 초 입니다.");
-		if(seconds >= 1000000)
-			System.out.println("100만 초가 모두 " + m_count + "번이나 포함됩니다.");
+		System.out.println("입력하신 점수의 총점은 " + sum + " 입니다.");
+		System.out.printf("평균은 %.1f 입니다. \n", avg);
+		if(this.korScore >= 90)
+			System.out.println("국어점수가 우수합니다.");
+                if(this.engScore >= 90)
+                        System.out.println("영어점수가 우수합니다.");
+                if(this.mathScore >= 90)
+                        System.out.println("수학점수가 우수합니다.");
 	}
 
 	public static void main(String args[]) {
-		new B03().init();
+		new B04().init();
 	}
 }
