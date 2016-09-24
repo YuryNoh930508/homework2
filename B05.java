@@ -1,9 +1,8 @@
 import java.util.*;
 
-class B04 {
-	int korScore;
-	int engScore;
-	int mathScore;
+class B05 {
+	int birthYear;
+	int age;
 
 	public void init() {
 		input();
@@ -13,31 +12,32 @@ class B04 {
 	public void input() {
 		Scanner s = new Scanner(System.in);
 
-		System.out.println("국어점수를 입력하세요: ");
-		this.korScore = s.nextInt();
-		
-                System.out.println("국어점수를 입력하세요: ");
-                this.engScore = s.nextInt();
-		
-                System.out.println("국어점수를 입력하세요: ");
-                this.mathScore = s.nextInt();
+		System.out.println("태어난 년도를  입력하세요: ");
+		this.birthYear = s.nextInt();
+
+		this.age = (2012 - this.birthYear) + 1;
 	}
 
 	public void print() {
-		int sum = this.korScore + this.engScore + this.mathScore;
-		double avg = sum/3.0;
+		String div = "";
 
-		System.out.println("입력하신 점수의 총점은 " + sum + " 입니다.");
-		System.out.printf("평균은 %.1f 입니다. \n", avg);
-		if(this.korScore >= 90)
-			System.out.println("국어점수가 우수합니다.");
-                if(this.engScore >= 90)
-                        System.out.println("영어점수가 우수합니다.");
-                if(this.mathScore >= 90)
-                        System.out.println("수학점수가 우수합니다.");
+		if(age < 7)
+			div = "유아";
+                else if(age < 13)
+                        div = "어린이";
+                else if(age < 20)
+                        div = "청소년";
+                else if(age < 30)
+                        div = "청년";
+                else if(age < 60)
+                        div = "중년";
+                else
+                        div = "노년";
+		
+		System.out.println(div + "입니다.");
 	}
 
 	public static void main(String args[]) {
-		new B04().init();
+		new B05().init();
 	}
 }
