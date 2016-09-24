@@ -20,7 +20,8 @@ class B03 {
 		int m_count = seconds / 1000000;
 
 		System.out.println("날수에 해당되는 기간은 모두 " + seconds + " 초 입니다.");
-		System.out.println("100만 초가 모두 " + m_count + "번이나 포함됩니다.");
+		if(seconds >= 1000000)
+			System.out.println("100만 초가 모두 " + m_count + "번이나 포함됩니다.");
 	}
 
 	public static void main(String args[]) {
