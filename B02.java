@@ -1,8 +1,8 @@
 import java.util.*;
 
-class B01 {
-	int birthYear;
-	int age;
+class B02 {
+	double inputDegree;
+	String kind;
 
 	public void init() {
 		input();
@@ -12,20 +12,24 @@ class B01 {
 	public void input() {
 		Scanner s = new Scanner(System.in);
 
-		System.out.println("태어난 년도를 입력하세요: ");
-		this.birthYear = s.nextInt();
+		System.out.println("온도를 입력하세요: ");
+		this.inputDegree = s.nextDouble();
 
-		this.age = (2014 - birthYear) + 1;
+		System.out.println("입력하신 온도가 섭씨온도이면 C를, 화씨온도이면 F를 입력하세요: ");
+		this.kind = s.next();
 	}
 
 	public void print() {
-		if(age <= 20)
-			System.out.println("미성년자 입니다.");
+		double result;
+		if(this.kind.equals("F"))
+			result = (inputDegree - 32)/1.8;
 		else
-			System.out.println("성인 입니다.");
+			result = (inputDegree * 1.8) + 32;
+
+		System.out.println("변환된 온도는 " + result + " 입니다.");
 	}
 
 	public static void main(String args[]) {
-		new B01().init();
+		new B02().init();
 	}
 }
